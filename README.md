@@ -1,79 +1,108 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Kullanici Kayit Uygulamasi
 
-# Getting Started
+This is a simple user registration app built with React Native.
+It is developed for a code interview.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+The task is explained in more detail in the second section.
 
-## Step 1: Start the Metro Server
+## Getting Started
+
+> **Note**: Make sure you have completed
+> the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) 
+> instructions till "Creating a new application" step, before proceeding.
+
+### Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
 To start Metro, run the following command from the _root_ of your React Native project:
 
 ```bash
 # using npm
-npm start
+npm start 
 
-# OR using Yarn
-yarn start
+# Or directly with the React Native CLI
+react-native start
 ```
 
-## Step 2: Start your Application
+### Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Let Metro Bundler run in the terminal and press 
+_a_ for running in Android (or Android emulator) or 
+_i_ for running in iOS:
 
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+If everything is set up _correctly_, you should see your new app running in your _Android_ or _iOS_ device or emulator.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+## The Task
 
-Now that you have successfully run the app, let's modify it.
+### Proje İsmi: 
+Kullanıcı Kayıt Uygulaması
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+### Açıklama: 
+Kullanıcı Kayıt Uygulaması, kullanıcıların kişisel ve kariyer bilgilerini kaydetmelerine ve bu
+bilgilere erişmelerine olanak sağlayan bir mobil uygulamadır. Uygulama, kullanıcı dostu bir arayüze
+sahip olacak ve kullanıcıların profil bilgilerini güvenli bir şekilde saklayacaktır.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### Teknolojiler ve Kütüphaneler:
+- React Native
+- React Navigation
+- Formik
+- Yup
+- react-native-image-picker
+- react-native-document-picker
+- react-native-table-component
+- react-native-chart-kit
+- AsyncStorage veya SQLite
 
-## Congratulations! :tada:
+### Fake API: 
+Fake verileri elde etmek için Fake JSON API'yi kullanacağız. Bu API, istediğimiz verileri
+belirleyip, JSON formatında sunucudan alabilmemizi sağlayacak. Fake JSON API'ye aşağıdaki
+linkten erişebilirsiniz: https://fakejson.com/
 
-You've successfully run and modified your React Native App. :partying_face:
+### Ülke ve İl Bilgileri: Ülke ve il bilgilerini çekmek için Rest Countries API'yi kullanacağız. Bu API,
+ülkeler ve bu ülkelere ait ilgili bilgileri sağlar. Rest Countries API'ye aşağıdaki linkten erişebilirsiniz:
+https://restcountries.com/
 
-### Now what?
+### İş Akışı:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+#### Kullanıcı Kayıt Ekranı:
+- Fotoğraf: Kullanıcı, galerisinden bir fotoğraf seçecek.
+- Ad Soyad: Kullanıcıdan ad ve soyad bilgisi istenecek.
+- Ülke ve İller: Kullanıcı, ülke ve il bilgilerini bir listeden seçebilecek.
+- Uniq Kimlik No: Kullanıcı, bir kimlik numarası girecek.
+- Telefon: Kullanıcı, telefon numarası girecek.
+- Doğum Tarihi: Kullanıcı, doğum tarihini seçecek.
+- Cinsiyet: Kullanıcı, cinsiyetini seçecek.
+- KVKK Onayı: Kullanıcı, KVKK onay metnini onaylamadan devam ekranına geçemeyecek.
 
-# Troubleshooting
+#### Çalışma Durumu ve Meslek Bilgileri:
+- Çalışma Durumu: Kullanıcı, çalışma durumunu seçecek (örneğin, öğrenci, çalışan, işsiz).
+- Meslek: Kullanıcı, mesleğini girecek veya seçecek. 
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+#### Eğitim Seviyesi ve Yetkinlik Bilgileri:
+- Eğitim Seviyesi: Kullanıcı, eğitim seviyesini seçecek (örneğin, ilkokul, lise, üniversite).
+- Okul Bilgileri: Kullanıcı, okul adı, bölüm ve mezuniyet yılını girecek.
+- Yetkinlik Dereceleri: Kullanıcı, yetkinliklerini ve derecelerini girecek.
 
-# Learn More
+#### CV ve Proje Alanı:
+- CV: Kullanıcı, sadece PDF formatında bir CV yüklenebilecek.
+- Projeler: Kullanıcı, isteğe bağlı olarak proje detayları girebilecek ve alanı artırıp silebilecek.
 
-To learn more about React Native, take a look at the following resources:
+#### Kayıt Tamamlandı:
+- Giriş Yap ve Dashboard Ekranı: Kullanıcı kaydını tamamladıktan sonra giriş yapabilecek ve dashboard ekranına yönlendirilecek.
+- Profil Bilgileri: Dashboard ekranında, kullanıcının doldurduğu profil bilgileri görüntülenecek.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+#### Dashboard Ekranı:
+- Dashboard ekranında widgetler bulunacak ve tasarımsal olarak kalabilir. Ek olarak,
+draw navigator ve tab navigator kullanılarak gezinme işlevselliği sağlanacaktır.
+
+### NOT: 
+Expo linki de paylaşabilirsiniz
+Projenizi tamamlayıp GitHub yükledikten sonra proje linkini aşağıdaki alana cevap olarak
+kaydetmeniz gerekmektedir. Proje ekran görüntülerini de GitHub reponuza yükleyebilirsiniz.
+GitHub readme dosyasına ekran kaydı da eklemeniz gerekmektedir.
+
+## Ekran Görüntüleri:
+
+comming soon...
