@@ -1,4 +1,6 @@
 {
-  "name": "UserRegistrationApp",
-  "displayName": "UserRegistrationApp"
+    "expo": {
+        "name": "KullaniciKayitUygulamasi",
+        "slug": "kullanici-kayit-uygulamasi"
+    }
 }

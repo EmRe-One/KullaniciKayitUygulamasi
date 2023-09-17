@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "UserRegistrationApp.app"
-               BlueprintName = "UserRegistrationApp"
-               ReferencedContainer = "container:UserRegistrationApp.xcodeproj">
+               BuildableName = "KullaniciKayitUygulamasi.app"
+               BlueprintName = "KullaniciKayitUygulamasi"
+               ReferencedContainer = "container:KullaniciKayitUygulamasi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "UserRegistrationAppTests.xctest"
-               BlueprintName = "UserRegistrationAppTests"
-               ReferencedContainer = "container:UserRegistrationApp.xcodeproj">
+               BuildableName = "KullaniciKayitUygulamasiTests.xctest"
+               BlueprintName = "KullaniciKayitUygulamasiTests"
+               ReferencedContainer = "container:KullaniciKayitUygulamasi.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "UserRegistrationApp.app"
-            BlueprintName = "UserRegistrationApp"
-            ReferencedContainer = "container:UserRegistrationApp.xcodeproj">
+            BuildableName = "KullaniciKayitUygulamasi.app"
+            BlueprintName = "KullaniciKayitUygulamasi"
+            ReferencedContainer = "container:KullaniciKayitUygulamasi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "UserRegistrationApp.app"
-            BlueprintName = "UserRegistrationApp"
-            ReferencedContainer = "container:UserRegistrationApp.xcodeproj">
+            BuildableName = "KullaniciKayitUygulamasi.app"
+            BlueprintName = "KullaniciKayitUygulamasi"
+            ReferencedContainer = "container:KullaniciKayitUygulamasi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
