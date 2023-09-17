@@ -1,20 +1,23 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import DashboardScreen from "../pages/DashboardScreen";
-import RegisterScreen from '../pages/RegisterScreen';
-import CurrentRegistrationScreen from '../pages/CurrentRegistrationScreen';
-import DemoPage from "../pages/DemoPage";
+import RegisteredNavigation from "./RegisteredNavigation";
+import PublicNavigation from "./PublicNavigation";
 
-const Stack = createStackNavigator();
+const MainStack = createStackNavigator();
 
-const AppNavigator = () => (
-  <Stack.Navigator initialRouteName="Dashboard">
-    <Stack.Screen name="Dashboard" component={DashboardScreen}/>
-    <Stack.Screen name="Demo" component={DemoPage}/>
-    <Stack.Screen name="Register" component={RegisterScreen}/>
-    <Stack.Screen name="CurrentRegistration" component={CurrentRegistrationScreen}/>
-  </Stack.Navigator>
-);
+const AppNavigator = () => {
+  // Placeholder ... will be replaced with auth logic
+  const isLoggedIn = false;
+
+  return (
+    <MainStack.Navigator>
+      {isLoggedIn ? (
+        <MainStack.Screen name="Registered" component={RegisteredNavigation} options={{ headerShown: false }}/>
+      ) : (
+        <MainStack.Screen name="Public" component={PublicNavigation}/>
+      )}
+    </MainStack.Navigator>
+  );
+};
 
 export default AppNavigator;
