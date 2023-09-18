@@ -6,11 +6,11 @@ import LoginScreen from "../pages/public/LoginScreen";
 const Stack = createStackNavigator();
 
 const PublicNavigation = () => (
-  <Stack.Navigator initialRouteName="Landing" >
-    <Stack.Screen name="Landing" component={LandingpageScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-  </Stack.Navigator>
+    <Stack.Navigator initialRouteName="Landing">
+        <Stack.Screen name="Landing" component={LandingpageScreen} options={{title: "Hoşgeldiniz"}}/>
+        <Stack.Screen name="Register" component={RegisterScreen} options={{title: "Kayıt ol"}}/>
+        <Stack.Screen name="Login" component={LoginScreen} options={{title: "Giriş yap"}}/>
+    </Stack.Navigator>
 );
 
 export default PublicNavigation;

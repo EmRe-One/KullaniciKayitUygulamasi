@@ -1,4 +1,4 @@
-# Kullanici Kayit Uygulamasi
+# Kullanıcı Kayıt Uygulaması
 
 This is a simple user registration app built with React Native.
 It is developed for a code interview.
@@ -36,6 +36,8 @@ This is one way to run your app — you can also run it directly from within And
 
 ## The Task
 
+I got the task in turkish. That is why I am copying it here as it is.
+
 ### Proje İsmi: 
 Kullanıcı Kayıt Uygulaması
 
@@ -59,13 +61,14 @@ sahip olacak ve kullanıcıların profil bilgilerini güvenli bir şekilde sakla
 Fake verileri elde etmek için Fake JSON API'yi kullanacağız. Bu API, istediğimiz verileri
 belirleyip, JSON formatında sunucudan alabilmemizi sağlayacak. Fake JSON API'ye aşağıdaki
 linkten erişebilirsiniz: https://fakejson.com/
-#### NOT: 
-Fakejson.com artık çalışmıyor. 
-- çalışıyor (< 12/2022): https://web.archive.org/web/20221210042444/https://fakejson.com/ 
-- çalışmıyor (> 01/2023): https://web.archive.org/web/20230128010908/https://fakejson.com/
-Fake verileri elde etmek için başka bir API kullandim:
-https://designer.mocky.io/
-
+> #### ÇOK ÖNEMLİ: 
+> Fakejson.com artık çalışmıyor. 
+> - çalışıyor (< 12/2022): https://web.archive.org/web/20221210042444/https://fakejson.com/ 
+> - çalışmıyor (> 01/2023): https://web.archive.org/web/20230128010908/https://fakejson.com/
+> 
+> Fake verileri elde etmek için başka bir API kullandim:
+> https://designer.mocky.io/
+ 
 ### Ülke ve İl Bilgileri: 
 Ülke ve il bilgilerini çekmek için Rest Countries API'yi kullanacağız. Bu API,
 ülkeler ve bu ülkelere ait ilgili bilgileri sağlar. Rest Countries API'ye aşağıdaki linkten erişebilirsiniz:

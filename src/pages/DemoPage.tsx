@@ -1,5 +1,5 @@
 import {ScrollView, StyleSheet, Text, useColorScheme, View} from "react-native";
-import React, {PropsWithChildren} from "react";
+import React, {JSX, PropsWithChildren} from "react";
 import {
   Colors,
   DebugInstructions,

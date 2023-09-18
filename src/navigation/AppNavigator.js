@@ -14,7 +14,7 @@ const AppNavigator = () => {
       {isLoggedIn ? (
         <MainStack.Screen name="Registered" component={RegisteredNavigation} options={{ headerShown: false }}/>
       ) : (
-        <MainStack.Screen name="Public" component={PublicNavigation}/>
+        <MainStack.Screen name="Public" component={PublicNavigation} options={{ headerShown: false }}/>
       )}
     </MainStack.Navigator>
   );

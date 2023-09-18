@@ -1,70 +1,147 @@
 import React, {JSX} from 'react';
-import {Text, Button, SafeAreaView, ScrollView, TextInput, StyleSheet, View} from 'react-native';
+import {Button, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Formik} from 'formik';
+import * as Yup from 'yup';
+import AvatarPicker from "../../components/AvatarPicker";
+import CountryPicker from "../../components/CountryPicker";
+import GenderSelection from "../../components/GenderSelection";
 
 type Props = {
-  navigation: any;
+    navigation: any;
 };
-import { Formik } from 'formik';
-import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Name ist erforderlich'),
-  email: Yup.string().email('Ungültige E-Mail').required('E-Mail ist erforderlich'),
-  // ... Weitere Validierungen hier ...
+    avatar: Yup.string(),
+    firstName: Yup.string().required('Isim gereklidir'),
+    surName: Yup.string().required('Soyad gereklidir'),
+    country: Yup.string(),
+    city: Yup.string(),
+    uniquePassNo: Yup.string(),
+    telephone: Yup.string(),
+    dateOfBirth: Yup.string().matches(/^\d{2}\/\d{2}\/\d{4}$/, 'Doğum tarihi geçerli değil (gg/aa/yyyy)'),
+    gender: Yup.string().oneOf(['Erkek', 'Kadın'], 'Cinsiyet seçiniz'),
+    kvkk: Yup.boolean().oneOf([true], 'KVKK onayı gereklidir')
 });
 
 function RegisterScreen({navigation}: Props): JSX.Element {
-  return <SafeAreaView>
-    <ScrollView>
-      <Formik
-        initialValues={{ name: '', email: '', /* ... */ }}
-        validationSchema={validationSchema}
-        onSubmit={(values) => console.log(values)}
-      >
-        {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
-          <View style={styles.container}>
-            <TextInput
-              placeholder={'Name'}
-              onChangeText={handleChange('name')}
-              onBlur={handleBlur('name')}
-              value={values.name}
-              style={styles.input}
-            />
-            {errors.name && <Text>{errors.name}</Text>}
+    return <KeyboardAvoidingView behavior={"padding"} style={{flex: 1}}>
+        <ScrollView>
+            <Formik
+                initialValues={{
+                    avatar: '',
+                    firstName: '',
+                    surName: '',
+                    country: '',
+                    city: '',
+                    uniquePassNo: '',
+                    telephone: '',
+                    dateOfBirth: '',
+                    gender: '',
+                    kvkk: false
+                }}
+                validationSchema={validationSchema}
+                onSubmit={(values) => console.log(values)}
+            >
+                {({
+                      handleChange,
+                      handleBlur,
+                      handleSubmit,
+                      values,
+                      errors,
+                      touched,
+                      isValid
+                  }) => (
+                    <View style={styles.container}>
+                        <AvatarPicker/>
 
-            <TextInput
-              placeholder={'E-Mail'}
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
-              value={values.email}
-              style={styles.input}
-            />
-            {errors.email && <Text>{errors.email}</Text>}
+                        <Text>Isim</Text>
+                        <TextInput
+                            placeholder={'Isim'}
+                            onChangeText={handleChange('firstName')}
+                            onBlur={handleBlur('firstName')}
+                            value={values.firstName}
+                            style={styles.input}
+                        />
+                        {errors.firstName && touched.firstName &&
+                            <Text style={styles.errorNote}>{errors.firstName}</Text>}
 
-            <Button
-              onPress={() => handleSubmit()}
-              title="Abschicken" />
-          </View>
-        )}
-      </Formik>
-    </ScrollView>
-  </SafeAreaView>;
+                        <Text>Soyad</Text>
+                        <TextInput
+                            placeholder={'Soyad'}
+                            onChangeText={handleChange('surName')}
+                            onBlur={handleBlur('surName')}
+                            value={values.surName}
+                            style={styles.input}
+                        />
+                        {errors.surName && touched.surName && <Text style={styles.errorNote}>{errors.surName}</Text>}
+
+                        <Text>Ülke</Text>
+                        <CountryPicker/>
+
+                        <Text>Doğum Tarihi (gg/aa/yyyy)</Text>
+                        <TextInput
+                            placeholder={'gg/aa/yyyy'}
+                            onChangeText={handleChange('dateOfBirth')}
+                            onBlur={handleBlur('dateOfBirth')}
+                            value={values.dateOfBirth}
+                            style={styles.input}
+                        />
+                        {errors.dateOfBirth && touched.dateOfBirth &&
+                            <Text style={styles.errorNote}>{errors.dateOfBirth}</Text>}
+
+                        <Text>Cinsiyet</Text>
+                        <GenderSelection value={values.gender} onChange={handleChange('gender')}/>
+                        {errors.gender && touched.gender && <Text>{errors.gender}</Text>}
+
+                        {/* KVKK Checkbox */}
+
+                        {errors.kvkk && touched.kvkk && <Text style={styles.errorNote}>{errors.kvkk}</Text>}
+
+                        <Button
+                            onPress={() => handleSubmit()}
+                            disabled={!values.kvkk}
+                            title="Abschicken"/>
+                    </View>
+                )}
+            </Formik>
+        </ScrollView>
+    </KeyboardAvoidingView>;
 }
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    padding: 8,
-  },
-  input: {
-    height: 40,
-    margin: 8,
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 8,
-  },
+    container: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: 16,
+        gap: 8,
+    },
+    input: {
+        height: 50,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderRadius: 8,
+        paddingHorizontal: 8,
+    },
+    genderSelection: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        width: 100,
+        gap: 8
+    },
+    errorNote: {
+        borderWidth: 1,
+        borderRadius: 8,
+        borderStyle: 'solid',
+        borderColor: 'red',
+        color: 'red',
+        fontStyle: 'italic',
+        paddingHorizontal: 8,
+    },
+    spacer: {
+        flex: 1
+    }
 });
 
 export default RegisterScreen;
